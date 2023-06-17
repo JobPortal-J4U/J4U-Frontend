@@ -56,6 +56,7 @@ function App() {
         <Route path="searchCompany" element={<SearchCompany />} />
 
         <Route path="about" element={<About />} />
+        <Route path="about" element={<About />} />
 
         <Route path="userTable" element={<UserTable />} />
 
