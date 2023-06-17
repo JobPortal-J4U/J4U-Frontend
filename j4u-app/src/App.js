@@ -36,6 +36,7 @@ import AdminLayout from "./components/layout/AdminLayout";
 import About from "./components/pages/About";
 import UserTable from "./features/user/UserTable";
 import ProfilePage from "./features/user/ProfilePage";
+import FavoritePage from "./components/pages/FavoritePage";
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
         <Route path="searchCompany" element={<SearchCompany />} />
 
         <Route path="about" element={<About />} />
-        <Route path="about" element={<About />} />
+        <Route path="favorite" element={<FavoritePage />} />
 
         <Route path="userTable" element={<UserTable />} />
 

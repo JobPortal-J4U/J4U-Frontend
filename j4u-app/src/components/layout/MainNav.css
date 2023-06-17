@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 .navbar{
-  padding:  8px !important;
-  
+  padding:  0 !important;
+  min-height: 0.5rem;
 }
 .userImg{
   color: dark !important;
@@ -16,19 +16,9 @@
   font-weight: 400;
   letter-spacing: 0.5px;
 }
-.navbar-brand .p{
-  padding-left: 10px;
-  background-color: black;
-}
-.navbar-brand .logo{
-  background-color: black;
-}
 .navUl li {
   padding: 0 0.5rem !important;
 }
-
-
-
 .linkItems {
   font-size: 1rem;
   color: #000 !important;

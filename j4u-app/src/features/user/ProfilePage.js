@@ -61,7 +61,7 @@ const ProfilePage = () => {
           <div class="row align-items-center">
             <div class="col-md-6">
               <div class="edu-col">
-                <span>
+                <span class="date">
                   01-Jan-2020 <i>to</i> 31-Dec-2050
                 </span>
                 <h3>Master Degree</h3>
@@ -73,7 +73,7 @@ const ProfilePage = () => {
             </div>
             <div class="col-md-6">
               <div class="edu-col">
-                <span>
+                <span class="date">
                   01-Jan-2020 <i>to</i> 31-Dec-2050
                 </span>
                 <h3>Bachelor Degree</h3>
@@ -96,7 +96,7 @@ const ProfilePage = () => {
           <div class="row align-items-center">
             <div class="col-md-6">
               <div class="exp-col">
-                <span>
+                <span class="date">
                   01-Jan-2020 <i>to</i> 31-Dec-2050
                 </span>
                 <h3>Codex Solution</h3>
@@ -110,7 +110,7 @@ const ProfilePage = () => {
             </div>
             <div class="col-md-6">
               <div class="exp-col">
-                <span>
+                <span class="date">
                   01-Jan-2020 <i>to</i> 31-Dec-2050
                 </span>
                 <h3>Soft Solution Ltd</h3>
@@ -124,7 +124,7 @@ const ProfilePage = () => {
             </div>
             <div class="col-md-6">
               <div class="exp-col">
-                <span>
+                <span class="date">
                   01-Jan-2020 <i>to</i> 31-Dec-2050
                 </span>
                 <h3>ABC Soft Ltd</h3>
@@ -138,7 +138,7 @@ const ProfilePage = () => {
             </div>
             <div class="col-md-6">
               <div class="exp-col">
-                <span>
+                <span class="date">
                   01-Jan-2020 <i>to</i> 31-Dec-2050
                 </span>
                 <h3>Soft Agency</h3>

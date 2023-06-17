@@ -31,10 +31,8 @@ font-family: 'Source Serif Pro', serif;
 .button {
   color: #2d2d2d;
   font-size: 13px;
-  padding: 12px 31px;
+  padding: 8px 31px;
   border-radius: 22px;
-  
-  
 }
 .button:hover {
    

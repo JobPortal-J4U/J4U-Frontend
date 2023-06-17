@@ -8,19 +8,18 @@ body{
   font-family: "Poppins", sans-serif;
 }
 
-/* ul{
+ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
-} */
+}
 
 a{
   text-decoration: none;
 }
 
-/* Header */
 .header-wrapper header{
   width: 100%;
   background: url("https://png.pngtree.com/background/20220714/original/pngtree-2-5d-blue-gradient-futuristic-internet-platform-background-picture-image_1618465.jpg") no-repeat 60% 30% / cover;
@@ -137,19 +136,6 @@ a{
       height: auto;
   }
   
-  .navbar-brand {
-      display: none;
-  }
-  
-  .navbar {
-      padding: 15px 0;
-      flex-direction: column;
-  }
-  
-  .wrapper .sidebar:hover .navbar-expand-md .navbar-nav .nav-link {
-      padding: 5px 30px 7px 30px;
-  }
-  
   .wrapper .sidebar::-webkit-scrollbar {
       width: 7px;
   }
@@ -162,10 +148,6 @@ a{
       background-color: darkgrey;
       outline: 1px solid slategrey;
       border-radius: 7px
-  }
-  
-  .navbar-brand {
-      display: none;
   }
   
   .sidebar .sidebar-footer {
@@ -218,10 +200,6 @@ a{
       position: relative;
       display: block;
       width: 100%;
-  }
-  
-  .navbar-expand-md .navbar-nav .nav-link {
-      padding: 5px 30px 7px 30px;
   }
   
   .sidebar .sidebar-footer {
@@ -341,7 +319,7 @@ a{
   }
 }
 
-.education .edu-col span {
+.education .edu-col .date {
   position: relative;
   display: block;
   font-size: 13px;
@@ -349,7 +327,7 @@ a{
   margin-bottom: 10px;
 }
 
-.education .edu-col span::before {
+.education .edu-col .date::before {
   position: absolute;
   content: "";
   width: 11px;
@@ -360,7 +338,7 @@ a{
   border-radius: 5px;
 }
 
-.education .edu-col span i {
+.education .edu-col .date i {
   color: #FF6F61;
 }
 
@@ -409,8 +387,11 @@ a{
       padding-bottom: 0;
   }
 }
+.date{
 
-.experience .exp-col span {
+}
+
+.experience .exp-col .date{
   position: relative;
   display: block;
   font-size: 13px;
@@ -418,7 +399,7 @@ a{
   margin-bottom: 10px;
 }
 
-.experience .exp-col span::before {
+.experience .exp-col .date::before {
   position: absolute;
   content: "";
   width: 11px;
@@ -429,7 +410,7 @@ a{
   border-radius: 5px;
 }
 
-.experience .exp-col span i {
+.experience .exp-col .date i {
   color: #FF6F61;
 }
 

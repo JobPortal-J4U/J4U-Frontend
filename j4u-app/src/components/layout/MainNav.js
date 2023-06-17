@@ -48,7 +48,7 @@ const MainNav = () => {
             </li>
           </ul>
         </div> */}
-        <p className="mb-0 button btn btn-outline-primary ">Log out</p>
+        <p className="mb-0 btn-sm button btn btn-outline-primary ">Log out</p>
       </Link>
     );
   } else {
@@ -91,10 +91,10 @@ const MainNav = () => {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container ">
-        <Link className="navbar-brand " to="/">
-          <p>J<span>4</span>U</p>
+        <Link className="navbar-brand ">
+          J<span class="logo">4</span>U
         </Link>
         <button
           class="navbar-toggler"
