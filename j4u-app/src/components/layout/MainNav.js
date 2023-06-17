@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./MainNav.css";
-import { MDBIcon } from "mdb-react-ui-kit";
+// import { MDBIcon } from "mdb-react-ui-kit";
 import { getToken, logout } from "../../features/auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 const MainNav = () => {
@@ -94,7 +94,7 @@ const MainNav = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
       <div className="container ">
         <Link className="navbar-brand " to="/">
-          J<span className="logo">4</span>U
+          <p>J<span>4</span>U</p>
         </Link>
         <button
           class="navbar-toggler"
@@ -105,7 +105,7 @@ const MainNav = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <MDBIcon icon="bars" fas />
+          <i class="fa-solid fa-bars"></i>
         </button>
         <div className="collapse navbar-collapse " id="navbarNav">
           <ul className="navbar-nav ms-auto navUl align-items-center">
@@ -155,6 +155,11 @@ const MainNav = () => {
             <li>
               <Link class="dropdown-item" to="/profile">
               My Profile
+              </Link>
+            </li>
+            <li>
+              <Link class="dropdown-item" to="/favorite">
+                Favorite Job Lists  
               </Link>
             </li>
             <li>

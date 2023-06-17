@@ -45,8 +45,6 @@ h1{
 .job-item:hover {
   border-color: #119BFF;
   box-shadow: none;
-  
-  
 }
 
 .browse{
@@ -71,11 +69,21 @@ h1{
   padding: 12px 31px;
   border-radius: 24px;
 }
+.heart{
+  color: #2d2d2d;
+  font-size: 13px;
+  padding: 12px 31px;
+  border-radius: 24px;
+}
+.heart:hover {
+  background-color: #102770;
+    color: #ffeba7;
+    box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
 .viewJobs:hover {
   background-color: #102770;
     color: #ffeba7;
     box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
-  
 }
 .searchJobs{
   background-color: #2d2d2d;
