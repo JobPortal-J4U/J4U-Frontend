@@ -1,0 +1,26 @@
+.com-item {
+    display: block;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    border: 2px solid transparent;
+    transition: .5s;
+    border-color: rgba(0, 0, 0, .02);
+    
+}
+
+.com-item:hover {
+    border-color:  #119BFF;
+    box-shadow: none;
+}
+.view{
+    color: #2d2d2d;
+    font-size: 10px;
+    padding: 10px 28px;
+    border-radius: 20px;
+}
+
+.view:hover{
+    background-color: #102770;
+    color: #ffeba7;
+    box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+  
+}

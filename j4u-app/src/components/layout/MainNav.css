@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar{
+  padding:  8px !important;
+  
+}
+.userImg{
+  color: dark !important;
+}
+.navbar-brand {
+  font-size: 1.4rem;
+  color: #000 !important;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+.navUl li {
+  padding: 0 0.5rem !important;
+}
+
+
+
+.linkItems {
+  font-size: 1rem;
+  color: #000 !important;
+  font-weight: 400;
+  position: relative;
+}
+
+.linkItems:after {
+  content: "";
+  opacity: 0;
+  transition: all 0.2s;
+  height: 2px;
+  width: 100%;
+  background-color: #119bff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.linkItems:hover::after {
+  opacity: 1;
+}
