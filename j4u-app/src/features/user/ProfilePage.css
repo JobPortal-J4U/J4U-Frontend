@@ -137,15 +137,7 @@ a{
       height: auto;
   }
   
-  .navbar-brand {
-      display: none;
-  }
-  
-  .navbar {
-      padding: 15px 0;
-      flex-direction: column;
-  }
-  
+
   .wrapper .sidebar:hover .navbar-expand-md .navbar-nav .nav-link {
       padding: 5px 30px 7px 30px;
   }
@@ -164,9 +156,6 @@ a{
       border-radius: 7px
   }
   
-  .navbar-brand {
-      display: none;
-  }
   
   .sidebar .sidebar-footer {
       width: 300px;

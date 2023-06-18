@@ -5,11 +5,11 @@ import { MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Contact from "./Contact";
 
 import CompanyLogo from "../../logo/CompanyLogo";
-import SearchJob from "../../features/jobs/SearchJob";
 import JobCategory from "../../features/jobs/JobCategory";
 import Meta from "./Meta";
-import JobList from "../../features/jobs/JobList";
+
 import About from "./About";
+import FilterJob from "../../features/jobs/FilterJob";
 
 function Home() {
   return (
@@ -84,10 +84,10 @@ function Home() {
           </MDBCol>
         </MDBRow>
       </div>
-      <SearchJob />
+      <FilterJob/>
       <JobCategory />
       <About />
-      <JobList />
+      {/* <JobList /> */}
 
       <CompanyLogo />
       <Contact />

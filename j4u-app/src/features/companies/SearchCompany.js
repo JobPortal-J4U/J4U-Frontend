@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllLocations, selectAllLocations } from '../locations/locationSlice';
 import { selectAllCompanies } from './companySlice';
 import Aos from 'aos';
-import PropagateLoader from 'react-spinners/PropagateLoader';
 import { Link } from 'react-router-dom';
 import CompanyList from './CompanyList';
 
@@ -19,7 +18,7 @@ const SearchCompany = () => {
 
 
   const [filteredCompanies, setFilteredCompanies] = useState([]);
-  const [loading, setLoading] = useState(false);
+  
 
   const dispatch = useDispatch();
 
@@ -31,12 +30,7 @@ const SearchCompany = () => {
     Aos.init({ duration: 500 });
   }, []);
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+
 
   const locations = useSelector(selectAllLocations);
   const locationsOpt = locations.map((location) => (
@@ -64,7 +58,7 @@ const handleSearch = () => {
     if (companyName && !company.name.toLowerCase().includes(companyName.toLowerCase())) {
       return false;
     }
-    if (locationId && company.location && company.location.id !== parseInt(locationId)) {
+    if (locationId && company.location && String(company.location.id) !== String(locationId)) {
       return false;
     }
     return true;
@@ -94,6 +88,7 @@ const handleSearch = () => {
                     value={selectedFilters.companyName}
                     onChange={handleInputChange}
                   />
+                  
                 </div>
 
                 <div className="col-md-5">
@@ -113,16 +108,7 @@ const handleSearch = () => {
         </div>
       </div>
 
-      {loading ? (
-        <div className="role container text-center d-flex my-5">
-          <div className="col-md-4">
-            <h3>Loading</h3>
-          </div>
-          <div className="col-md-8">
-            <PropagateLoader color={'#119BFF'} loading={loading} size={20} aria-label="Loading Spinner" data-testid="loader" />
-          </div>
-        </div>
-      ) : (
+ 
         <div className="container py-3">
           <div className="container">
             <h1 className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -158,7 +144,7 @@ const handleSearch = () => {
             )}
           </div>
         </div>
-      )}
+    
     </>
   );
 };

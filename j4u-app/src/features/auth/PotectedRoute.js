@@ -6,7 +6,9 @@ const ProtectedRoute = ({allowedRoles}) => {
 
     const location = useLocation()
     const auth = useSelector(isAuth)
+   
     const roles = useSelector(getRoles)
+    console.log("heiio "+roles)
 
   return (
     auth && roles.find(role => allowedRoles.includes(role))?

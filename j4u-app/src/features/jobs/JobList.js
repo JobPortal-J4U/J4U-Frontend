@@ -53,9 +53,7 @@ const JobList = () => {
       ) : (
         <div class="container  jobList mb-5 ">
           <div class="container">
-            <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
-              Job Listing
-            </h1>
+            
             <div
               class="tab-class text-center wow fadeInUp"
               data-wow-delay="0.3s"

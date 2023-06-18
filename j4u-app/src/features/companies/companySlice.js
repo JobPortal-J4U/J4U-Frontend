@@ -120,7 +120,9 @@ export const selectCompanyById = (state, companyId) =>
   state.companies.companies.find((company) => company.id === companyId)
 
   export const selectCompanyByLocationId = (state, locationId) =>
-  state.companies.companies.find((company) => company.location.id === locationId)
+  state.companies.companies.find(
+    (company) => company.location && company.location.id === locationId
+  );
 
 export const selectAllCompanies = state => state.companies.companies
 
