@@ -4,3 +4,14 @@
 h1{
     font-family: 'Times New Roman', Times, serif !important;
 }
+.refresh{
+    background-color: #BEC3C7;
+    height: 38px;
+    font-size: 13px;
+    padding: 10px 29px;
+    border-radius: 20px;
+  }
+  .refresh:hover{
+    background-color: #119BFF;
+    color: #fff;
+  }

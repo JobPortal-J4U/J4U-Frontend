@@ -94,7 +94,7 @@ const MainNav = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
       <div className="container ">
         <Link className="navbar-brand " to="/">
-          <p>J<span>4</span>U</p>
+          J<span className="logo">4</span>U
         </Link>
         <button
           class="navbar-toggler"

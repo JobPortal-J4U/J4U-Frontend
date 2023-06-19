@@ -10,6 +10,7 @@ import Meta from "./Meta";
 
 import About from "./About";
 import FilterJob from "../../features/jobs/FilterJob";
+import JobList from "../../features/jobs/JobList";
 
 function Home() {
   return (
@@ -87,7 +88,7 @@ function Home() {
       <FilterJob/>
       <JobCategory />
       <About />
-      {/* <JobList /> */}
+      <JobList/>
 
       <CompanyLogo />
       <Contact />

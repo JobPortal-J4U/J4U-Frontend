@@ -84,6 +84,21 @@ const FilterJob = () => {
   
     setFilteredJobPosts(filteredData);
   };
+
+  const handleRefresh = () => {
+    setSelectedFilters({
+      jobPostTitle: "",
+      jobTypeId: "",
+      locationId: "",
+    });
+    setFilteredJobPosts([]);
+  
+    // Reset the selected options for job types and locations
+    document.getElementById("jobTypeSelect").selectedIndex = 0;
+    document.getElementById("locationSelect").selectedIndex = 0;
+    handleSearch();
+  };
+  
   
 
   return (
@@ -110,6 +125,7 @@ const FilterJob = () => {
                 <div className="col-md-3">
                   <select
                     className="form-select border-0"
+                    id="jobTypeSelect"
                     name="jobTypeId"
                     onChange={handleInputChange}
                   >
@@ -121,6 +137,7 @@ const FilterJob = () => {
                 <div className="col-md-3">
                   <select
                     className="form-select border-0"
+                    id="locationSelect"
                     name="locationId"
                     onChange={handleInputChange}
                   >
@@ -128,12 +145,20 @@ const FilterJob = () => {
                     {locationsOpt}
                   </select>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-2">
                   <button
                     className="searchCom btn btn-outline-secondary border-0 w-100"
                     onClick={handleSearch}
                   >
                     Search
+                  </button>
+                </div>
+                <div className="col-md-1">
+                  <button
+                    className="refresh btn btn-outline-secondary border-0 w-100"
+                    onClick={handleRefresh}
+                  >
+                    <i class="fas fa-rotate"></i>
                   </button>
                 </div>
               </div>
@@ -142,8 +167,8 @@ const FilterJob = () => {
         </div>
       </div>
 
-      <div className="container py-3">
-        <div className="container">
+      <div className="container-fluid py-3">
+        <div className="container-fluid">
           <h1 className="text-center mb-5 wow" data-wow-delay="0.1s">
             Job Posts List
           </h1>
@@ -152,7 +177,7 @@ const FilterJob = () => {
             <h3 className="text-center text-secondary">JobPosts not found!</h3>
           ) : (
             <div class="container  jobList mb-5 ">
-          <div class="container">
+          
             
             <div
               class="tab-class text-center wow fadeInUp"
@@ -215,7 +240,7 @@ const FilterJob = () => {
               </div>
             </div>
           </div>
-        </div>
+       
           )}
         </div>
       </div>
