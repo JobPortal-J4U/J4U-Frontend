@@ -3,22 +3,31 @@ const Application = () => {
   return (
     
     <section>
-                            <div class="card my-3 mx-auto ">
+                            <div class="container my-3 mx-auto ">
                             <h4 class="mb-3 my-4 text-center">Apply For The Job</h4>
                             <form class="p-4">
                                 <div class="row g-3">
                                     <div class="col-12 col-sm-4">
+                                    <label for="" class="form-label">Your Name* </label>
                                         <input type="text" class="form-control" placeholder="Your Name"/>
                                     </div>
                                     <div class="col-12 col-sm-4">
+                                    <label for="" class="form-label">NRC* </label>
+                                        <input type="text" class="form-control" placeholder="NRC"/>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                    <label for="" class="form-label">Date Of Birth* </label>
+                                        <input type="date" class="form-control" />
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                    <label for="" class="form-label">Your Email* </label>
                                         <input type="email" class="form-control" placeholder="Your Email"/>
                                     </div>
                                     <div class="col-12 col-sm-4">
+                                    <label for="" class="form-label">Your Phone Number* </label>
                                         <input type="phone" class="form-control" placeholder="Your Phone No"/>
                                     </div>
-                                    <div class="col-12 col-sm-4">
-                                        <input type="date" class="form-control" placeholder="Date Of Birth"/>
-                                    </div>
+                                   
                                     <div class="col-12 col-sm-4">
                                         <input type="email" class="form-control" placeholder="Your Father Name"/>
                                     </div>

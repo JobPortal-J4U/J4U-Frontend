@@ -44,6 +44,8 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* Public Route */}
 
+        <Route path="app" element={<Application />} />
+
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
@@ -63,7 +65,7 @@ function App() {
         {/* Protected Roue -> Role {"ROLE_USER"} */}
         <Route element={<ProtectedRoute allowedRoles={["ROLE_USER"]} />}>
           <Route path="profile" element={< ProfilePage/>} />
-          <Route path="app" element={<Application />} />
+          
           <Route path="unauthenticated" element={<UnAuthenticated />} />
         </Route>
       </Route>
