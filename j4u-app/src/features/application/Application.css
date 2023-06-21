@@ -1,0 +1,32 @@
+.app{
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+  border: 1.8px solid transparent;
+  border-radius: 5px;
+  background-color:#fff;
+}
+.more{
+    border-radius:6px !important;
+    border-radius:20px;
+    padding: 10px 20px;
+    color: #2d2d2d;
+}
+.more:hover {
+   
+    background-color: #102770;
+    color: #ffeba7;
+    box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+  
+}
+
+.more1{
+    border-radius:20px;
+    padding: 6px 20px !important;
+    color: #2d2d2d;
+}
+.more1:hover {
+   
+    background-color: #102770;
+    color: #ffeba7;
+    box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+  
+}

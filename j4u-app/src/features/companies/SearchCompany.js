@@ -116,7 +116,7 @@ const SearchCompany = () => {
                     {locationsOpt}
                   </select>
                 </div>
-                <div className="col-md-2 ">
+                <div className="col-md-3 ">
                   <button
                     className="searchCom btn btn-outline-secondary border-0 w-100 "
                     onClick={handleSearch}
@@ -124,7 +124,7 @@ const SearchCompany = () => {
                     Search
                   </button>
                 </div>
-                <div className="col-md-2">
+                <div className="col-md-1">
                   <button
                     className="refresh btn btn-outline-secondary border-0 w-100"
                     onClick={handleRefresh}

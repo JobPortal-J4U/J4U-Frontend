@@ -44,7 +44,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* Public Route */}
 
-        <Route path="app" element={<Application />} />
+        <Route path="app/:jobPostId" element={<Application />} />
 
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />

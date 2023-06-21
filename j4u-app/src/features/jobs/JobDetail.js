@@ -21,6 +21,7 @@ const JobDetail = () => {
          </section>
      )
     }
+    const applyNowLink = `/app/${jobPostId}`; 
 
   return (
 
@@ -82,7 +83,7 @@ const JobDetail = () => {
                             <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: {jobPost.salary}</p>
                             <p><i class="fa fa-angle-right text-primary me-2"></i>Location:{jobPost.location.name}</p>
                             <p class="m-0"><i class="fa fa-angle-right text-primary me-2 mb-4"></i>Date Line: {jobPost.deadLine}</p>
-                            <Link class="viewJobs btn btn-outline-primary py-1" to='/app'>
+                            <Link class="viewJobs btn btn-outline-primary py-1" to={applyNowLink}>
                         Apply Now
                         </Link>
                         </div>
