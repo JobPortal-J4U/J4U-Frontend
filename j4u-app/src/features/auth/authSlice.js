@@ -67,7 +67,7 @@ export const getRoles = state => state.auths.roles
 export const getSuccess = state => state.auths.success
 export const getToken = state => state.auths.token
 
-export const isAuth = state => String(state.auths.token). length !== 0
+export const isAuth = state => String(state.auths.token).length !== 0
 
 export const { logout,setToken } = authSlice.actions
 export default authSlice.reducer

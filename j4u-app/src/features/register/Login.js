@@ -53,7 +53,7 @@ const Login = () => {
         if (success) {
           setEmail("");
           setPassword("");
-          if(roleType == "ROLE_ADMIN"){
+          if(roleType === "ROLE_ADMIN"){
             navigate("/admin/", { replace: true });
 
           }else{
