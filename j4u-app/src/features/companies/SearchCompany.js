@@ -7,10 +7,10 @@ import {
   getAllLocations,
   selectAllLocations,
 } from "../locations/locationSlice";
-import { selectAllCompanies } from "./companySlice";
+import { getAllCompanies, selectAllCompanies } from "./companySlice";
 import Aos from "aos";
 import { Link } from "react-router-dom";
-import CompanyList from "./CompanyList";
+
 
 const SearchCompany = () => {
   const companies = useSelector(selectAllCompanies);
@@ -19,12 +19,13 @@ const SearchCompany = () => {
     locationId: "",
   });
 
-  const [filteredCompanies, setFilteredCompanies] = useState([]);
+  const [filteredCompanies, setFilteredCompanies] = useState(companies);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllLocations());
+    dispatch(getAllCompanies());
   }, [dispatch]);
 
   useEffect(() => {
@@ -145,7 +146,7 @@ const SearchCompany = () => {
           </h1>
 
           {filteredCompanies.length === 0 ? (
-            <CompanyList />
+             <h3 className="text-center text-secondary">Company not found!</h3>
           ) : (
             <div className="row g-4 text-left" data-aos="fade-up">
               {filteredCompanies.map((company) => (

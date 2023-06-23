@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './FilterJob.css'
 import Aos from "aos";
 import { Link } from "react-router-dom";
-import { selectAllJobPosts } from "./jobSlice";
+import { getAllJobPosts, selectAllJobPosts } from "./jobSlice";
 import { getAlljobTypes, selectAllJobTypes } from "../jobTypes/jobTypeSlice";
 import {
   getAllLocations,
@@ -19,13 +19,14 @@ const FilterJob = () => {
     locationId: "",
   });
 
-  const [filteredJobPosts, setFilteredJobPosts] = useState([]);
+  const [filteredJobPosts, setFilteredJobPosts] = useState(jobPosts);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllLocations());
     dispatch(getAlljobTypes());
+    dispatch(getAllJobPosts());
   }, [dispatch]);
 
   useEffect(() => {
@@ -55,13 +56,13 @@ const FilterJob = () => {
 
   const handleSearch = () => {
     const { jobPostTitle, locationId, jobTypeId } = selectedFilters;
-    console.log(jobPostTitle)
-    console.log(locationId)
-    console.log(jobTypeId)
   
     // Filter job posts based on selected filters
     const filteredData = jobPosts.filter((jobPost) => {
-      if (jobPostTitle && !jobPost.title.toLowerCase().includes(jobPostTitle.toLowerCase())) {
+      if (
+        jobPostTitle &&
+        !jobPost.title.toLowerCase().includes(jobPostTitle.toLowerCase())
+      ) {
         return false;
       }
       if (
@@ -69,21 +70,38 @@ const FilterJob = () => {
         jobPost.location &&
         String(jobPost.location.id) !== String(locationId)
       ) {
-        return false;
+        // If location filter is true but job type filter fails, include the job post
+        if (!jobTypeId || (jobPost.jobTypes && String(jobPost.jobTypes.id) === String(jobTypeId))) {
+          return true;
+        } else {
+          return false;
+        }
       }
       if (
         jobTypeId &&
         jobPost.jobTypes &&
         String(jobPost.jobTypes.id) !== String(jobTypeId)
       ) {
-        return false;
+         // If location filter is true but job type filter fails, include the job post
+         if (locationId || (jobPost.location && String(jobPost.location.id) === String(locationId))) {
+          return true;
+        } else {
+          return false;
+        }
       }
-      
+  
+      // If no filters are selected or if all filters match, include the job post
       return true;
     });
   
-    setFilteredJobPosts(filteredData);
+    if (filteredData.length > 0) {
+      setFilteredJobPosts(filteredData);
+    } else {
+      setFilteredJobPosts(jobPosts); // Show all jobPosts if no filters match
+    }
   };
+  
+  
 
   const handleRefresh = () => {
     setSelectedFilters({
@@ -184,10 +202,10 @@ const FilterJob = () => {
               data-wow-delay="0.3s"
             >
               <div class="tab-content " data-aos="fade-up">
-                <div id="tab-1" class="tab-pane fade show span-0 active">
+                <div id="tab-1" class="tab-pane fade show  span-0 active">
                   {filteredJobPosts.map((jobPost) => (
                     <Link to={`/jobPost/${jobPost.id}`}>
-                      <div class="job-item p-4 mb-4">
+                      <div class="job-item text-dark p-4 mb-4">
                         <div class="row g-4">
                           <div class="col-sm-12 col-md-8 d-flex align-items-center">
                             <img
@@ -233,9 +251,17 @@ const FilterJob = () => {
                       </div>
                     </Link>
                   ))}
-                  <Link class="button btn-outline-primary " href="">
-                    More Jobs <i class="fas fa-arrow-right ml-2"></i>
-                  </Link>
+                  <div class="text-center next">
+                  <div aria-label="Page navigation example">
+  <ul class="pagination text-dark " >
+    <li class="page-item"><Link class="page-link" href="#">Previous</Link></li>
+    <li class="page-item"><Link class="page-link" href="#">1</Link></li>
+    <li class="page-item"><Link class="page-link" href="#">2</Link></li>
+    <li class="page-item"><Link class="page-link" href="#">3</Link></li>
+    <li class="page-item"><Link class="page-link" href="#">Next</Link></li>
+  </ul>
+</div>
+                  </div>
                 </div>
               </div>
             </div>

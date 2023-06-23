@@ -330,7 +330,7 @@ a{
   }
 }
 
-.education .edu-col span {
+.education .edu-col span1 {
   position: relative;
   display: block;
   font-size: 13px;
@@ -338,7 +338,7 @@ a{
   margin-bottom: 10px;
 }
 
-.education .edu-col span::before {
+.education .edu-col span1::before {
   position: absolute;
   content: "";
   width: 11px;
@@ -349,7 +349,7 @@ a{
   border-radius: 5px;
 }
 
-.education .edu-col span i {
+.education .edu-col span1 i {
   color: #FF6F61;
 }
 
@@ -399,7 +399,7 @@ a{
   }
 }
 
-.experience .exp-col span {
+.experience .exp-col span1 {
   position: relative;
   display: block;
   font-size: 13px;
@@ -407,7 +407,7 @@ a{
   margin-bottom: 10px;
 }
 
-.experience .exp-col span::before {
+.experience .exp-col span1::before {
   position: absolute;
   content: "";
   width: 11px;
@@ -418,7 +418,7 @@ a{
   border-radius: 5px;
 }
 
-.experience .exp-col span i {
+.experience .exp-col span1 i {
   color: #FF6F61;
 }
 

@@ -228,7 +228,7 @@ const jobTypes = useSelector((state) => selectAllJobTypes(state));
           {filteredJobPosts.length === 0 ? (
             <h3 className="text-center text-secondary">JobPosts not found!</h3>
           ) : (
-            <div class="container  jobList mb-5 ">
+            <div class="container  jobList mb-5  ">
           
             
             <div
@@ -236,10 +236,10 @@ const jobTypes = useSelector((state) => selectAllJobTypes(state));
               data-wow-delay="0.3s"
             >
               <div class="tab-content " data-aos="fade-up">
-                <div id="tab-1" class="tab-pane fade show span-0 active">
+                <div id="tab-1" class="tab-pane fade show span-0 active ">
                   {filteredJobPosts.map((jobPost) => (
                     <Link to={`/jobPost/${jobPost.id}`}>
-                      <div class="job-item p-4 mb-4">
+                      <div class="job-item p-4 mb-4 text-dark">
                         <div class="row g-4">
                           <div class="col-sm-12 col-md-8 d-flex align-items-center">
                             <img

@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import "./Application.css";
+import { useDispatch, useSelector } from "react-redux";
+import { submitApplication } from "./applicationSlice";
+import { useNavigate, useParams } from "react-router-dom";
+import { getUser } from "../auth/authSlice";
 
 const Application = () => {
-  var experiencesLst;
-  var Lsteducation;
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
+  const {jobPostId}=useParams();
+  console.log("job post id is "+jobPostId)
+
+  const user=useSelector(getUser);
+  console.log("User is "+user.id)
+
   const [personalInfo, setPersonalInfo] = useState({
     name: "",
     nrc: "",
@@ -69,37 +79,87 @@ const Application = () => {
     setExperience(updatedExperience);
   };
 
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  
+  //   const formData = {
+  //     personalInfo,
+  //     education,
+  //     experience,
+  //     jobPostId,
+  //     user,
+  //   };
+  
+  //   try {
+  //     await dispatch(submitApplication(formData)).unwrap();
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.error("Failed to submit the application", error);
+  //   }
+  // };
+  
+  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!isEducationFormComplete() || !isExperienceFormComplete()) {
       alert("Please fill in all the required fields.");
       return;
     }
-    const formData = {
-      personalInfo,
-      education,
-      experience,
-    };
-    console.log(formData); // Example: Log the form data
+     // Example: Log the form data
 
     // Perform form submission logic here
     // For example, you can make an API request to send the form data
 
     // Reset the form after submission
-    setPersonalInfo({
-      name: "",
-      nrc: "",
-      dateOfBirth: "",
-      gender: "",
-      race: "",
-      email: "",
-      phoneNumber: "",
-      address: "",
-    });
-    setEducation([
-      { highSchoolName: "", degreeName: "", startDate: "", endDate: "" },
-    ]);
-    setExperience([{ companyName: "", position: "", startDates: "", endDates: "" }]);
+   
+    
+
+
+      setPersonalInfo({
+        name: "",
+        nrc: "",
+        dateOfBirth: "",
+        gender: "",
+        race: "",
+        email: "",
+        phoneNumber: "",
+        address: "",
+      }
+      
+      );
+      setEducation(
+        [{ highSchoolName: "", degreeName: "", startDate: "", endDate: "" }],
+      );
+     
+      setExperience([{ companyName: "", position: "", startDates: "", endDates: "" }]);
+    //  var eduAry;
+    //  var expAry;
+    //  eduAry=education.length===1?[education]:education
+    //  expAry=experience.length===1?[experience]:experience
+
+      const formData = {
+        personalInfo,
+        education,
+        experience,
+        jobPostId,
+        user
+      };
+      console.log(formData);
+  
+     
+        try {
+         
+          console.log("In the try "+formData);
+          dispatch(submitApplication(formData)).unwrap();        
+          navigate(`/`);
+        } catch (err) {
+          console.error("Failed to save the category", err);
+        } finally {
+          // setAddRequestStatus("idle");
+        }
+    
+
   };
 
   const isEducationFormComplete = () => {
@@ -186,9 +246,9 @@ const Application = () => {
                 required
               >
                 <option selected>Select Gender</option>
-                <option value="1">MALE</option>
-                <option value="2">FEMALE</option>
-                <option value="3">CUSTOM</option>
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+                <option value="CUSTOM">CUSTOM</option>
               </select>
             </div>
 
@@ -206,8 +266,8 @@ const Application = () => {
                 required
               >
                 <option selected>Select Race</option>
-                <option value="1">KAYIN</option>
-                <option value="2">BURMESE</option>
+                <option value="KAYIN">KAYIN</option>
+                <option value="BURMESE">BURMESE</option>
               </select>
             </div>
 

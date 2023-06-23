@@ -44,7 +44,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* Public Route */}
 
-        <Route path="app/:jobPostId" element={<Application />} />
+        
 
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
@@ -65,7 +65,7 @@ function App() {
         {/* Protected Roue -> Role {"ROLE_USER"} */}
         <Route element={<ProtectedRoute allowedRoles={["ROLE_USER"]} />}>
           <Route path="profile" element={< ProfilePage/>} />
-          
+          <Route path="app/:jobPostId" element={<Application />} />
           <Route path="unauthenticated" element={<UnAuthenticated />} />
         </Route>
       </Route>

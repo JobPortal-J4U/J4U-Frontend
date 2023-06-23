@@ -15,3 +15,11 @@ h1{
     background-color: #119BFF;
     color: #fff;
   }
+  .jobList,.show{
+    color: #2d2d2d !important;
+    
+  }
+  .pagination{
+    justify-content: center;
+    
+  }

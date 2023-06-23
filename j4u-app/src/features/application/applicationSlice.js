@@ -10,6 +10,7 @@ const GET_EDUCATION_URL = `${base_url}/education`;
 const POST_PERSONAL_INFO_URL = `${base_url}/personalInfo/create`;
 const POST_EXPERIENCE_URL = `${base_url}/experience/create`;
 const POST_EDUCATION_URL = `${base_url}/education/create`;
+const SUBMIT_APPLICATION = `${base_url}/application/submit`;
 
 const initialState = {
   personalInfo: [],
@@ -50,6 +51,7 @@ export const fetchEducation = createAsyncThunk(
 export const createPersonalInfo = createAsyncThunk(
   "applications/createPersonalInfo",
   async (personalInfoData) => {
+    
     const response = await axios.post(POST_PERSONAL_INFO_URL, personalInfoData);
     return response.data;
   }
@@ -74,33 +76,15 @@ export const createEducation = createAsyncThunk(
 export const submitApplication = createAsyncThunk(
     "applications/submitApplication",
     async (formData) => {
-      const { personalInfoData, experienceData, educationData } = formData;
+     const personalInfo=formData.personalInfo;
+     const experiencesLst=formData.experience;
+     const educationLst=formData.education;
+     const jobPostId=Number(formData.jobPostId);
+     const user=formData.user;
       // Submit personal info
-      const personalInfoResponse = await axios.post(
-        POST_PERSONAL_INFO_URL,
-        personalInfoData
-      );
-      const createdPersonalInfo = personalInfoResponse.data;
-  
-      // Submit experience
-      const experienceResponse = await axios.post(
-        POST_EXPERIENCE_URL,
-        experienceData
-      );
-      const createdExperience = experienceResponse.data;
-  
-      // Submit education
-      const educationResponse = await axios.post(
-        POST_EDUCATION_URL,
-        educationData
-      );
-      const createdEducation = educationResponse.data;
-  
-      return {
-        personalInfo: createdPersonalInfo,
-        experience: createdExperience,
-        education: createdEducation,
-      };
+      const response = await axios.post(
+        SUBMIT_APPLICATION,{personalInfo,experiencesLst,educationLst,user,jobPostId});
+        return response.data;
     }
   );
 
