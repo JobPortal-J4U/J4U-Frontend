@@ -153,7 +153,7 @@ const SearchJob = () => {
           </h1>
           <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
             <div class="tab-content " data-aos="fade-up">
-              <div id="tab-1" class="tab-pane fade show p-0 active">
+              <div id="tab-1" class="tab-pane fade show pattern-0 active">
                 {jobPosts && searchJobs.map((jobPost) => (
                   <div class="job-item p-4 mb-4">
                     <div class="row g-4">
@@ -167,14 +167,14 @@ const SearchJob = () => {
                       
                         <div class="text-start ps-4" key={jobPost.id}>
                           <h5 class="mb-3">{jobPost.title}</h5>
-                          <p class="text-truncate me-3">
+                          <pattern class="text-truncate me-3">
                             <i class="fa fa-map-marker-alt text-primary me-2"></i>
                             {jobPost.location.name}
-                          </p>
-                          <p class="text-truncate me-3">
+                          </pattern>
+                          <pattern class="text-truncate me-3">
                             <i class="far fa-clock text-primary me-2"></i>
                             {jobPost.jobTypes.type}
-                          </p>
+                          </pattern>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">

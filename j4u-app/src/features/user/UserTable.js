@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { getAllUsers, getStatus, selectAllUsers } from "./userSlice";
-import UserData from "./UserData";
+
 
 const UserTable = () => {
 
@@ -18,7 +18,7 @@ const UserTable = () => {
   const getUserStatus = useSelector(getStatus);
 
   let content;
-  let index = 1;
+  
 
   if (getUserStatus === "loading") {
     content = <p>Loading.....</p>;
@@ -56,14 +56,14 @@ const UserTable = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {users.map((user) => (
+                        {/* {users.map((user) => (
                           <UserData
                             no={index++}
                             id={user.id}
                             name={user.fullname}
                             username={user.username}
                           />
-                        ))}
+                        ))} */}
                       </tbody>
                     </table>
                   </div>

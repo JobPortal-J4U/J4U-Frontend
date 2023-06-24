@@ -2,17 +2,31 @@ import React, { useState } from "react";
 import "./Application.css";
 import { useDispatch, useSelector } from "react-redux";
 import { submitApplication } from "./applicationSlice";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { getUser } from "../auth/authSlice";
+import AppModal from "./AppModal";
+import Backdrop from "../../components/ui/Backdrop";
 
 const Application = () => {
   const dispatch=useDispatch();
-  const navigate=useNavigate();
+  
   const {jobPostId}=useParams();
   console.log("job post id is "+jobPostId)
 
   const user=useSelector(getUser);
   console.log("User is "+user.id)
+
+  // const loginUser = useSelector(state => state.auths.user)
+  // console.log(loginUser)
+
+  // const[name,setName]= useState(loginUser.fullname);
+  // console.log(setName)
+  // const[email,setEmail]= useState(loginUser.username);
+  // console.log(setEmail)
+  // const[phoneNumber,setPhoneNumber]= useState(loginUser.phone);
+  // console.log(setPhoneNumber)
+
+  const [isModelOpen, setModelOpen] = useState(false);
 
   const [personalInfo, setPersonalInfo] = useState({
     name: "",
@@ -152,7 +166,7 @@ const Application = () => {
          
           console.log("In the try "+formData);
           dispatch(submitApplication(formData)).unwrap();        
-          navigate(`/`);
+          setModelOpen(true);
         } catch (err) {
           console.error("Failed to save the category", err);
         } finally {
@@ -335,7 +349,7 @@ const Application = () => {
               <div key={index} className="row ">
                 <div class="col-12 col-sm-4 mb-3 ">
                   <label htmlFor={`highSchoolName-${index}`} class="form-label">
-                    High School *
+                    High School Name*
                   </label>
                   <input
                     class="form-control"
@@ -508,6 +522,8 @@ const Application = () => {
           </div>
         </form>
       </div>
+      {isModelOpen && <AppModal />}
+      {isModelOpen && <Backdrop />}
     </section>
   );
 };

@@ -7,6 +7,7 @@ import jobTypeSlice from "../features/jobTypes/jobTypeSlice";
 import companySlice from "../features/companies/companySlice";
 import authSlice from "../features/auth/authSlice";
 import userSlice from "../features/user/userSlice";
+import expSlice from "../features/exp/expSlice";
 
 
 export const store = configureStore({
@@ -18,6 +19,7 @@ export const store = configureStore({
         companies: companySlice,
         auths : authSlice,
         users : userSlice,
+        experiences: expSlice,
 
     }
 })

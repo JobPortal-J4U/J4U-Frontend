@@ -1,8 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./ProfilePage.css";
+
+import { getAllUsers, getUser } from "./userSlice";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 const ProfilePage = () => {
 
+  const {jobPostId}=useParams();
+  console.log("job post id is "+jobPostId)
+
+  const user=useSelector(getUser);
+  console.log("User is "+user.id)
+  console.log("User is "+user.address)
     const loginUser = useSelector(state => state.auths.user)
+
 
   return (
     <>
@@ -23,7 +34,7 @@ const ProfilePage = () => {
       </div>
 
       {/* About */}
-      <div class="about" id="about">
+      <div class="about" id="about" key={user.id}>
         <div class="about-inner">
           <div class="about-header">
             <h2>About Me</h2>
@@ -43,8 +54,7 @@ const ProfilePage = () => {
                   <a href="tel:+1234567890">{loginUser.phone}</a>
                 </p>
                 <p>
-                  <i class="fa fa-map-marker"></i>123 Street, Los Angeles, CA,
-                  USA
+                  <i class="fa fa-map-marker"></i>{user.address}
                 </p>
               </div>
             </div>

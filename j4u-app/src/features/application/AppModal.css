@@ -1,0 +1,21 @@
+.appModal{
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    border: 1.8px solid transparent;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size:1.3rem;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    width: 25rem;
+    z-index: 10;
+    position: fixed;
+    top: 30vh;
+    left: calc(50% - 15rem);
+}
+.jobD{
+    font-size: 1rem;
+}
+.moreJob{
+    font-size: 1.3rem;
+}

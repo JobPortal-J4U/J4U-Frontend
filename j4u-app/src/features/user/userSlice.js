@@ -81,8 +81,6 @@ export const getUser = state => state.users.users
 export const getStatus = state => state.users.status
 
 
-export const selectUserById = (state, userId) =>
-  state.users.users.find((user) => user.id === userId)
 
   export const selectAllUsers = state => state.users.users
 

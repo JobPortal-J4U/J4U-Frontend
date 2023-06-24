@@ -36,6 +36,10 @@ import AdminLayout from "./components/layout/AdminLayout";
 import About from "./components/pages/About";
 import UserTable from "./features/user/UserTable";
 import ProfilePage from "./features/user/ProfilePage";
+import AppModal from "./features/application/AppModal";
+import Modal from "./components/ui/Modal";
+import ExpTable from "./features/exp/ExpTable";
+
 
 
 function App() {
@@ -44,9 +48,11 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* Public Route */}
 
-        
+        <Route path="appModal" element={<AppModal />} />
+        <Route path="Modal" element={<Modal />} />
 
         <Route index element={<Home />} />
+       
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="jobPost" element={<Job />} />
@@ -59,6 +65,11 @@ function App() {
 
         <Route path="about" element={<About />} />
         <Route path="about" element={<About />} />
+
+
+        <Route path="expTable" element={<ExpTable />} />
+       
+
 
         <Route path="userTable" element={<UserTable />} />
 
