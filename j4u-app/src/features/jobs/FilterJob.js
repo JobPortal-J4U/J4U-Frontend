@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './FilterJob.css'
@@ -6,10 +6,12 @@ import Aos from "aos";
 import { Link } from "react-router-dom";
 import { getAllJobPosts, selectAllJobPosts } from "./jobSlice";
 import { getAlljobTypes, selectAllJobTypes } from "../jobTypes/jobTypeSlice";
+import FavoriteContext from '../../store/favoriteContext'
 import {
   getAllLocations,
   selectAllLocations,
 } from "../locations/locationSlice";
+import { getAllCompanies } from "../companies/companySlice";
 
 const FilterJob = () => {
   const jobPosts = useSelector(selectAllJobPosts);
@@ -19,11 +21,15 @@ const FilterJob = () => {
     locationId: "",
   });
 
+  const favoriteContext = useContext(FavoriteContext);
+
   const [filteredJobPosts, setFilteredJobPosts] = useState(jobPosts);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getAllJobPosts());
+    dispatch(getAllCompanies());
     dispatch(getAllLocations());
     dispatch(getAlljobTypes());
     dispatch(getAllJobPosts());
@@ -53,6 +59,32 @@ const FilterJob = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+
+  function toggleFavoriteHandler(id) {
+    const isJobFavorite = favoriteContext.isJobFavorite(id);
+
+    console.log("You clicked favouriate button.");
+    const jobPostId = id;
+    const jobPost = jobPosts.find((post) => jobPostId === post.id);
+    console.log("isJobFav is " + isJobFavorite);
+
+    if (isJobFavorite) {
+      favoriteContext.removeFavorite(jobPostId);
+      // isFavItem=false;
+    } else {
+      favoriteContext.addFavorite({
+        id: jobPostId,
+        title: jobPost.title,
+        logo: jobPost.company.logo,
+        type: jobPost.jobTypes.type,
+        name: jobPost.category.name,
+        deadLine: jobPost.deadLine,
+        createdDate:jobPost.createdAt,
+        isFavItem: true,
+      });
+    }
+  }
 
   const handleSearch = () => {
     const { jobPostTitle, locationId, jobTypeId } = selectedFilters;
@@ -194,7 +226,7 @@ const FilterJob = () => {
           {filteredJobPosts.length === 0 ? (
             <h3 className="text-center text-secondary">JobPosts not found!</h3>
           ) : (
-            <div class="container  jobList mb-5 ">
+            <div class="container p-0 jobList mb-5 ">
           
             
             <div
@@ -204,7 +236,7 @@ const FilterJob = () => {
               <div class="tab-content " data-aos="fade-up">
                 <div id="tab-1" class="tab-pane fade show  span-0 active">
                   {filteredJobPosts.map((jobPost) => (
-                    <Link to={`/jobPost/${jobPost.id}`}>
+                    // <Link to={`/jobPost/${jobPost.id}`}>
                       <div class="job-item text-dark p-4 mb-4">
                         <div class="row g-4">
                           <div class="col-sm-12 col-md-8 d-flex align-items-center">
@@ -229,14 +261,17 @@ const FilterJob = () => {
                           </div>
                           <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                             <div class="d-flex mb-3">
+                            <button class="btn savebtn ms-3"
+                                  onClick={(e) =>
+                                    toggleFavoriteHandler(jobPost.id)
+                                  }
+                                >
+                                  {favoriteContext.isJobFavorite(jobPost.id)
+                                    ? "UNSAVE"
+                                    : "SAVE"}
+                                </button>
                               <Link
-                                class="heart btn btn-light me-2"
-                                to=""
-                              >
-                                <i class="fa-solid fa-heart pt-2"></i>
-                              </Link>
-                              <Link
-                                class="viewJobs btn btn-outline-primary"
+                                class="viewJobs btn btn-outline-primary ms-3"
                                 to={`/jobPost/${jobPost.id}`}
                               >
                                 <i class="fas fa-arrow-right"></i>
@@ -249,7 +284,7 @@ const FilterJob = () => {
                           </div>
                         </div>
                       </div>
-                    </Link>
+                    // </Link>
                   ))}
                   <div class="text-center next">
                   <div aria-label="Page navigation example">

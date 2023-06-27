@@ -8,6 +8,8 @@ import companySlice from "../features/companies/companySlice";
 import authSlice from "../features/auth/authSlice";
 import userSlice from "../features/user/userSlice";
 import expSlice from "../features/exp/expSlice";
+import personalinfoSlice from "../features/personalInfo/personalinfoSlice";
+import applicationSlice from "../features/application/applicationSlice";
 
 
 export const store = configureStore({
@@ -20,6 +22,8 @@ export const store = configureStore({
         auths : authSlice,
         users : userSlice,
         experiences: expSlice,
+        personalInfos: personalinfoSlice,
+        applications: applicationSlice
 
     }
 })

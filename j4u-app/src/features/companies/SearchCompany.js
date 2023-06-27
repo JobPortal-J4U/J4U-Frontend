@@ -53,18 +53,17 @@ const SearchCompany = () => {
     // Filter companies based on selected filters
     const filteredData = companies.filter((company) => {
       if (
+        locationId &&
+        company.location &&
+        String(company.location.id) !== String(locationId)
+      ) 
+      if (
         companyName &&
         !company.name.toLowerCase().includes(companyName.toLowerCase())
       ) {
         return false;
       }
-      if (
-        locationId &&
-        company.location &&
-        String(company.location.id) !== String(locationId)
-      ) {
-        return false;
-      }
+      
       return true;
     });
 
@@ -153,6 +152,7 @@ const SearchCompany = () => {
                 <div
                   className="col-lg-2 col-sm-6 wow fadeInUp"
                   data-wow-delay="0.1s"
+                  key={company.id}
                 >
                   <Link
                     className="com-item rounded p-4"
@@ -172,8 +172,8 @@ const SearchCompany = () => {
                       </p>
 
                       <p className="mb-2 text-dark mb-3">
-                        <i className="fa fa-map-marker-alt text-primary me-2" />
-                        {company.location.name}
+                        <i className="fa fa-map-marker-alt text-primary me-2" key={company.id}/>
+                        {company.location}
                       </p>
 
                       <Link

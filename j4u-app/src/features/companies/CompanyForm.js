@@ -1,11 +1,17 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addNewCompany } from "./companySlice";
+import { getAllLocations, selectAllLocations } from "../locations/locationSlice";
 
 const CompanyForm = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    
+    dispatch(getAllLocations());
+  
+  }, [dispatch]);
 
   const [name, setName] = useState("");
   const [description, setDecription] = useState("");
@@ -14,6 +20,8 @@ const CompanyForm = () => {
   const [address, setAddress] = useState("");
   const [jobOpening, setJobOpening] = useState("");
   const [logo, setLogo] = useState("");
+  const [locationId, setLocationId] = useState("");
+  
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
 
   const navigate = useNavigate();
@@ -25,8 +33,15 @@ const CompanyForm = () => {
   const onAddressChanged = (e) => setAddress(e.target.value);
   const onJobOpeningChanged = (e) => setJobOpening(e.target.value);
   const onLogoChanged = (e) => setLogo(e.target.value);
+  const onLocationChange = (e) => setLocationId(e.target.value);
   
 
+  const locations = useSelector(selectAllLocations)
+  const locationsOpt = locations.map((location) => (
+    <option key={location.id} value={location.id}>
+      {location.name}
+    </option>
+  ));
   const canSave = [name,description,address,phone,jobOpening,email,logo].every(Boolean) && addRequestStatus === "idle";
 
   const onSaveCompanyClicked = () => {
@@ -43,7 +58,7 @@ const CompanyForm = () => {
         setJobOpening("");
         setLogo("")
 
-        navigate(`/companyTable`);
+        navigate(`/admin/companyTable`);
       } catch (err) {
         console.error("Failed to save the Company", err);
       } finally {
@@ -102,6 +117,19 @@ const CompanyForm = () => {
                               onChange={onDescriptionChanged}
                             />
                           </div>
+                          <div class=" mb-3 col-md-12 h-100 ">
+                          <label htmlFor="locationId">Job Location*</label>
+                            <select
+                              class="form-select"
+                              aria-label="Default select example"
+                              id="locationId"
+                              value={locationId}
+                              onChange={onLocationChange}
+                            >
+                              <option value="">Choose Location</option>
+                              {locationsOpt}
+                            </select>
+                            </div>
                           <div class=" mb-3 col-md-6 h-100 ">
                             <label for="title">Phone*</label>
                             <input

@@ -42,8 +42,8 @@ const JobDetail = () => {
             </div>
         </div>
     
-       <div class="container py-1 wow jobDetails" data-wow-delay="0.1s">
-            <div class="container ">
+       <div class="container-fluid  wow jobDetails" data-wow-delay="0.1s">
+            <div class="container p-0 ">
                 <div class="row gy-5 gx-4 " key={jobPost.id}>
                     <div class="col-lg-8">
                         <div class="d-flex align-items-center mb-5">

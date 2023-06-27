@@ -23,3 +23,51 @@ h1{
     justify-content: center;
     
   }
+
+  .savebtn {
+    position: relative;
+    display: inline-block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .savebtn::before,
+  .savebtn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .savebtn::before {
+    left: -30px;
+  }
+  
+  .savebtn::after {
+    right: -30px;
+  }
+  
+  /* .savebtn:hover::before,
+  .savebtn:hover::after {
+    background-color: pink;
+  } */
+  
+  .savebtn .fa-save {
+    margin-right: 0.5rem;
+  }
+  
+  .savebtn .fa-save.save {
+    color: #102770;
+  }
+  
+  .savebtn .fa-save:not(.save) {
+    color: grey;
+  }

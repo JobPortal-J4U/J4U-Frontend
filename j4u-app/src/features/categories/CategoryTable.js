@@ -26,7 +26,7 @@ const CategoryTable = () => {
             <li class="breadcrumb-item active">Tables</li>
           </ol>
 
-          <div class="card mb-4">
+          <div class="container mb-4">
             <div className="card-header row">
               <div class=" col-md-8">
                 <i class="fas fa-table me-1"></i>
@@ -34,7 +34,7 @@ const CategoryTable = () => {
               </div>
               <div class=" col-md-4">
                 <button className="btn btn-outline-primary">
-                  <Link to="/categoryForm">Create More</Link>
+                  <Link to="/admin/categoryForm">Create More</Link>
                 </button>
               </div>
             </div>

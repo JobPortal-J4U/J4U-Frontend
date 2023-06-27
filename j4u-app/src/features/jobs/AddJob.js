@@ -135,7 +135,7 @@ const AddJob = () => {
         setDeadLine("");
         setPublishedOn("");
 
-        navigate(`/jobtable`);
+        navigate(`/admin/jobtable`);
       } catch (err) {
         console.error("Failed to save the JobPost", err);
       } finally {

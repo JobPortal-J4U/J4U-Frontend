@@ -24,7 +24,7 @@ const LocationForm = () => {
         dispatch(addNewLocation({ name })).unwrap();
 
         setName("");
-        navigate(`/locationTable`);
+        navigate(`/admin/locationTable`);
       } catch (err) {
         console.error("Failed to save the Location", err);
       } finally {

@@ -5,7 +5,7 @@ import CustomInput from "../../components/CustomInput";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getRoles,  login } from "../auth/authSlice";
+import { getRoles,  getSuccess,  login } from "../auth/authSlice";
 import "./Login.css";
 
 const Login = () => {
@@ -33,29 +33,35 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  // const success = useSelector(getSuccess);
+  const success = useSelector(getSuccess);
   const roleType = useSelector(getRoles)
-  console.log("roleTyepe "+roleType)
 
- const onLogin = (e) => {
-  e.preventDefault();
+  const onLogin = (e) => {
+    e.preventDefault();
 
-  if (canLogin) {
-    setLoginRequestStatus("pending");
+    if (canLogin) {
+      setLoginRequestStatus("pending");
 
-    try {
-      dispatch(
-        login({
-          username: email,
-          password,
-        })
-      ).unwrap();
+      try {
+        dispatch(
+          login({
+            username: email,
+            password,
+          })
+        ).unwrap();
 
-      if (roleType.roles  === "ROLE_ADMIN") {
-        navigate("/admin/", { replace: true });
-      } else {
-        navigate(from, { replace: true });
-      }
+        if (success) {
+          setEmail("");
+          setPassword("");
+          if(roleType == "ROLE_ADMIN"){
+            navigate("/admin/dashboard", { replace: true });
+
+          }else{
+            navigate(from, { replace: true });
+          }
+          
+        } 
+      
     } catch (error) {
       console.error(error);
     } finally {

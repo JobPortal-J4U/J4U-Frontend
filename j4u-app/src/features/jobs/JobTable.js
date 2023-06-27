@@ -42,7 +42,7 @@ const JobTable = () => {
       <Meta title={"JobTable"} />
 
       <main>
-        <div className="container  px-1 pt-4">
+        <div className="container  px-1 pt-4 mt-5">
        
 
           <div className="container">

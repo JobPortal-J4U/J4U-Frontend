@@ -24,7 +24,7 @@ const CategoryForm = () => {
         dispatch(addNewCategory({ name })).unwrap();
 
         setName("");
-        navigate(`/categoryTable`);
+        navigate(`/admin/categoryTable`);
       } catch (err) {
         console.error("Failed to save the category", err);
       } finally {

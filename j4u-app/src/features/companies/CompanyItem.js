@@ -39,7 +39,7 @@ const CompanyItem = (props) => {
         })
       ).unwrap();
 
-      navigate(`/companyTable`);
+      navigate(`/admin/companyTable`);
       console.log("After delete;;;;;;;;;;;;" + delError);
       if (delError != null)
         alert("Can't delete because props has many jobPosts!");

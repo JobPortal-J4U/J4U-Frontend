@@ -34,7 +34,7 @@ const LocationTable = () => {
               </div>
               <div class=" col-md-4 my-2">
                 <button className="btn btn-outline-primary">
-                  <Link to="/locationForm">Create More</Link>
+                  <Link to="/admin/locationForm">Create More</Link>
                 </button>
               </div>
             </div>

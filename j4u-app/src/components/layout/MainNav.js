@@ -130,6 +130,12 @@ const MainNav = () => {
                 COMPANIES
               </Link>
             </li>
+            
+            {/* <li className="nav-item">
+              <Link className="nav-link linkItems" to="/comForm">
+                PersonalInfo
+              </Link>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link linkItems" to="/about">
                 ABOUT US

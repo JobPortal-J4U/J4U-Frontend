@@ -2,6 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { base_url } from "../config/baseUrl";
 
+const GET_URL = `${base_url}/application/all`;
+
 // API URLs for each entity
 const GET_PERSONAL_INFO_URL = `${base_url}/personalInfo`;
 const GET_EXPERIENCE_URL = `${base_url}/experience`;
@@ -14,6 +16,7 @@ const SUBMIT_APPLICATION = `${base_url}/application/submit`;
 
 const initialState = {
   personalInfo: [],
+  applications:[],
   experience: [],
   education: [],
   status: "idle",
@@ -21,6 +24,15 @@ const initialState = {
 };
 
 // Async Thunks for fetching data
+
+export const getAllApplications  = createAsyncThunk(
+  "personalInfos/getAllPersonalInfos",
+  async () => {
+    const response = await axios.get(GET_URL);
+
+    return [...response.data];
+  }
+);
 
 export const fetchPersonalInfo = createAsyncThunk(
   "applications/fetchPersonalInfo",
@@ -97,6 +109,20 @@ const applicationSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
+
+
+    .addCase(getAllApplications.pending, (state) => {
+      state.status = "loading";
+    })
+    .addCase(getAllApplications.fulfilled, (state, action) => {
+      state.applications = action.payload;
+      state.status = "success";
+    })
+    .addCase(getAllApplications.rejected, (state, action) => {
+      state.status = "fail";
+      state.error = action.error.message;
+    })
+
       .addCase(fetchPersonalInfo.pending, (state) => {
         state.status = "loading";
       })
@@ -182,6 +208,10 @@ const applicationSlice = createSlice({
       })
   },
 });
+
+export const selectAllApplications = (state) => state.applications.applications;
+export const selectAppById = (state, appId) =>
+  state.applications.applications.find((application) => application.id === appId);
 
 export const getApplicationStatus = (state) => state.applications.status;
 export const getApplicationError = (state) => state.applications.error;

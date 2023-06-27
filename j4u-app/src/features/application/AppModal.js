@@ -39,9 +39,9 @@ console.log(jobPost)
           </div>
           <div className="row moreJob">
             <div className="col-md-8">
-            <Link className="text-dark  moreJob" to='/jobPost'>View More JobPost</Link></div>
+            <Link className="text-dark  moreJob" to='/'>View More JobPost</Link></div>
             <div className="col-md-4">
-             <button className="btn btn-outline-primary  " ><Link to='/jobPost'> OK</Link>
+             <button className="btn btn-outline-primary  " ><Link to='/'> OK</Link>
        
       </button>
           </div>

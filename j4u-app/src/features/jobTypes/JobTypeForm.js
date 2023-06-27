@@ -24,7 +24,7 @@ const JobTypeForm = () => {
         dispatch(addNewJobType({ type })).unwrap();
 
         setType("");
-        navigate(`/jobTypeTable`);
+        navigate(`/admin/jobTypeTable`);
       } catch (err) {
         console.error("Failed to save the JobType", err);
       } finally {

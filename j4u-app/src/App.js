@@ -39,6 +39,12 @@ import ProfilePage from "./features/user/ProfilePage";
 import AppModal from "./features/application/AppModal";
 import Modal from "./components/ui/Modal";
 import ExpTable from "./features/exp/ExpTable";
+import EduTable from "./features/edu/EduTable";
+import PersonalInfoTable from "./features/personalInfo/PersonalInfoTable";
+import ApplicationTable from "./features/application/ApplicationTable";
+import CreateCompanyForm from "./features/companies/CreateCompanyForm";
+import Dashboard from "./components/admin/components/Dashboard";
+import FavoritePage from "./components/pages/FavoritePage";
 
 
 
@@ -68,6 +74,14 @@ function App() {
 
 
         <Route path="expTable" element={<ExpTable />} />
+        <Route path="eduTable" element={<EduTable />} />
+        <Route path="info" element={<PersonalInfoTable/>} />
+
+        <Route path="comForm" element={<CreateCompanyForm/>} />
+
+        <Route path="applications" element={<ApplicationTable/>} />
+        <Route path="favorite" element={<FavoritePage />} />
+
        
 
 
@@ -83,12 +97,16 @@ function App() {
 
       {/* Protected Roue -> Role {"ROLE_ADMIN"} */}
       <Route element={<ProtectedRoute allowedRoles={["ROLE_ADMIN"]} />}>
+
+
         <Route path="/admin/" element={<AdminLayout />}>
+        <Route path="dashboard" element={<Dashboard />} />
           <Route path="locationForm" element={<LocationForm />} />
           <Route path="locationTable" element={<LocationTable />} />
           <Route
             path="editLocation/id/:locationId"
             element={<EditLocation />}
+            
           />
 
           <Route path="companyTable" element={<CompanyTable />} />

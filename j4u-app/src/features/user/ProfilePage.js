@@ -1,18 +1,22 @@
-import { useDispatch, useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import "./ProfilePage.css";
 
-import { getAllUsers, getUser } from "./userSlice";
+import {  getUser } from "./userSlice";
+import { getAllPersonalInfo } from "../personalInfo/personalinfoSlice";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+
 const ProfilePage = () => {
-
-  const {jobPostId}=useParams();
-  console.log("job post id is "+jobPostId)
-
+const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAllPersonalInfo());
+   
+  }, [dispatch]);
+ 
   const user=useSelector(getUser);
   console.log("User is "+user.id)
-  console.log("User is "+user.address)
-    const loginUser = useSelector(state => state.auths.user)
+
+    // const personalInfo = useSelector(selectAllPersonalInfos)
+    console.log("This is address"+user.name)
 
 
   return (
@@ -27,7 +31,7 @@ const ProfilePage = () => {
               <img src="https://i.pinimg.com/236x/f7/3e/fe/f73efee3900f890a2239725468da9f9d.jpg"alt=""></img>
               
             </div>
-            <h3 class="mb-3" style={{marginLeft:"30px"}}>{loginUser.fullname}</h3>
+            <h3 class="mb-3" style={{marginLeft:"30px"}}>{user.fullname}</h3>
             <button class="">Edit Profile</button>
           </div>
         </div>
@@ -43,15 +47,15 @@ const ProfilePage = () => {
             <div class="col-md-6">
               <div class="about-info">
                 <p>
-                  <i class="fa fa-user"></i>{loginUser.fullname}
+                  <i class="fa fa-user"></i>{user.fullname}
                 </p>
                 <p>
                   <i class="fa fa-envelope"></i>
-                  <a href="mailto:info@example.com">{loginUser.username}</a>
+                  <a href="mailto:info@example.com">{user.username}</a>
                 </p>
                 <p>
                   <i class="fa fa-phone"></i>
-                  <a href="tel:+1234567890">{loginUser.phone}</a>
+                  <a href="tel:+1234567890">{user.phone}</a>
                 </p>
                 <p>
                   <i class="fa fa-map-marker"></i>{user.address}

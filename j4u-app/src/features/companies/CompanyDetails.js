@@ -60,8 +60,8 @@ const CompanyDetails = () => {
       </div>
 
       
-      <div class="container-fluid py-5 wow jobDetails" data-wow-delay="0.1s">
-            <div class="container">
+      <div class="container-fluid py-5 wow jobDetails p-0" data-wow-delay="0.1s">
+            <div class="container p-0">
                 <div class="row gy-5 gx-4 ">
                     <div class="col-lg-8" key={company.id}>
                         <div class="d-flex align-items-center mb-5">

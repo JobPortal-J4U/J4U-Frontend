@@ -35,7 +35,7 @@ const JobTypeTable = () => {
               </div>
               <div class=" col-md-4">
                 <button className="btn btn-outline-primary">
-                  <Link to="/jobTypeForm">Create More</Link>
+                  <Link to="/admin/jobTypeForm">Create More</Link>
                 </button>
               </div>
             </div>
