@@ -37,6 +37,7 @@ import About from "./components/pages/About";
 import UserTable from "./features/user/UserTable";
 import ProfilePage from "./features/user/ProfilePage";
 import FavoritePage from "./components/pages/FavoritePage";
+import Dashboard from "./components/layout/Dashboard";
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
       {/* Protected Roue -> Role {"ROLE_ADMIN"} */}
       <Route element={<ProtectedRoute allowedRoles={["ROLE_ADMIN"]} />}>
         <Route path="/admin/" element={<AdminLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="locationForm" element={<LocationForm />} />
           <Route path="locationTable" element={<LocationTable />} />
           <Route

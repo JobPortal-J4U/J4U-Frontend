@@ -16,6 +16,20 @@ h1{
   border-bottom: 2px solid var(--primary);
 }
 
+/* .job-item {
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 0 45px rgba(0, 0, 0, .1);
+  transition: .5s;
+  background-color:#fff;
+  
+}
+
+.job-item:hover {
+  border-color: #2d2d2d;
+  box-shadow: none;
+
+} */
 .jobList{
   background: #fff;
 }
@@ -48,6 +62,13 @@ h1{
     background-color: #119bff;
     color: #fff;
   }
+.viewJobs{
+  
+  color: #2d2d2d;
+  font-size: 13px;
+  padding: 12px 31px;
+  border-radius: 24px;
+}
 .savebtn {
   position: relative;
   display: inline-block;
@@ -95,7 +116,6 @@ h1{
     color: #ffeba7;
     box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
 }
-
 .searchJobs{
   background-color: #2d2d2d;
   height: 38px;
@@ -115,3 +135,5 @@ h1{
   margin: 0;
   padding: 0;
 } 
+
+

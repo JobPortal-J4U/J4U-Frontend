@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { base_url } from "../config/baseUrl";
+import sub from "date-fns/sub";
 
 const initialState = {
   jobPosts: [],
@@ -67,6 +68,7 @@ const jobSlice = createSlice({
   name: "jobPosts",
   initialState,
   reducers: {
+
     
 // selectJobByFilter :(state,action )=> {
 //   const { title, jobTypes,location } = action.payload;

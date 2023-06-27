@@ -30,30 +30,44 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/"
 
   const success = useSelector(getSuccess)
+  const roleType = useSelector(getRoles)
 
   const onLogin = (e) => {
     e.preventDefault()
     
-    if(canLogin){
-      setLoginRequestStatus('pending')
+    if (canLogin) {
+      setLoginRequestStatus("pending");
 
       try {
-          dispatch(login({
-            username:email,
-            password
-          })).unwrap()
-          
-          if(success){
-            setEmail('')
-            setPassword('')
-            navigate(from,{ replace:true })
+        dispatch(
+          login({
+            username: email,
+            password,
+          })
+        ).unwrap();
+
+        if (success) {
+          setEmail("");
+          setPassword("");
+          if(roleType == "ROLE_ADMIN"){
+            navigate("/admin/", { replace: true });
+
           }else{
-            setMessage(<span className="alert-danger">username or password is incorrect</span>)
+            navigate(from, { replace: true });
           }
+          
+        } 
+        // else {
+        //   setMessage(
+        //     <span className="alert-danger">
+        //       username or password is incorrect
+        //     </span>
+        //   );
+        // }
       } catch (error) {
-        console.error(error)
+        console.error(error);
       } finally {
-        setLoginRequestStatus('idle')
+        setLoginRequestStatus("idle");
       }
     }
   }

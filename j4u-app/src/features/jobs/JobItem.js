@@ -70,7 +70,7 @@ const JobItem = (props) => {
 
         <td data-title="ACTION">
           <Link to={`/admin/editJobPost/id/${props.id}`} className="mx-4">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+          <i class="fa-sharp fa-solid fa-pen-to-square"></i>
           </Link>
           <Link onClick={deleteHandler} className="">
             <i class="fa-sharp fa-solid fa-trash"></i>

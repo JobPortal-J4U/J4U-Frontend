@@ -13,7 +13,7 @@ const Contact = () => {
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
-                            <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done.</p>
+                            /* Add Some Content Here to express Contact*/
                             <form>
                                 <div class="row g-3">
                                     <div class="col-md-6">

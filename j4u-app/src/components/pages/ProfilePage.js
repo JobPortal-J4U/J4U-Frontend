@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom'
-import './Profile.css'
-
+import { Link } from "react-router-dom";
+import "./Profile.css";
 
 const ProfilePage = () => {
   return (
     <>
-<div class="container">
+      <div class="container">
         <div class="row align-items-center">
           <div class="col">
             <img
@@ -16,7 +15,7 @@ const ProfilePage = () => {
             />
             <div class="profile-content pt-4">
               {/* {personalInfos.map((personalInfo) => ( */}
-                <h1 class="name">This is name</h1>
+              <h1 class="name">This is name</h1>
               {/* ))} */}
             </div>
           </div>
@@ -31,11 +30,11 @@ const ProfilePage = () => {
                 <h2 class="heading">About Me</h2>
                 <div class="content">
                   <p>
-                    Write Link brief intro about yourself. It's Link good idea to
-                    include your personal interests and hobbies as well. Lorem
-                    ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                    commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                    penatibus et magnis dis parturient montes, nascetur
+                    Write Link brief intro about yourself. It's Link good idea
+                    to include your personal interests and hobbies as well.
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+                    natoque penatibus et magnis dis parturient montes, nascetur
                     ridiculus mus. Donec quam felis, ultricies nec. Commodo
                     ligula eget dolor. Aenean massa.
                   </p>
@@ -49,23 +48,22 @@ const ProfilePage = () => {
                 <h2 class="heading sr-only">Basic Information</h2>
                 <div class="content">
                   {/* {personalInfos.map((personalInfo) => ( */}
-                    <ul class="list-unstyled">
-                      <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span class="sr-only"></span>
-                        This is address
-                      </li>
-                      <li>
-                        <i class="fa-solid fa-phone"></i>
-                        <span class="sr-only"></span>
-                        <Link href="#">This is phone</Link>
-                      </li>
-                      <li>
-                        <span class="sr-only">Website:</span>
-                        <Link href="#">https://www.website.com</Link>
-                      </li>
-                    </ul>
-                
+                  <ul class="list-unstyled">
+                    <li>
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span class="sr-only"></span>
+                      This is address
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-phone"></i>
+                      <span class="sr-only"></span>
+                      <Link href="#">This is phone</Link>
+                    </li>
+                    <li>
+                      <span class="sr-only">Website:</span>
+                      <Link href="#">https://www.website.com</Link>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </aside>
@@ -98,7 +96,7 @@ const ProfilePage = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProfilePage
+export default ProfilePage;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  
   getAllCategories,
   selectAllCategories,
 } from "../categories/categorySlice";
@@ -185,8 +184,8 @@ const AddJob = () => {
             <div class="container ">
               <div class="row ">
                 <div class="col-lg-5">
-                  <div class="container shadow-lg border-0 rounded-lg  p-3 formCard">
-                    <div class="card-header  ">
+                  <div class="container shadow-lg border-0 rounded-lg  p-3 formCard" style={{marginTop: "2rem"}}>
+                    <div class="card-header">
                       {" "}
                       <div class="d-flex flex-column  ">
                         <h3 class="text-center">Job Form</h3>
@@ -344,8 +343,8 @@ const AddJob = () => {
 
                           <div class="d-flex justify-content-end mt-4 mb-0">
                             <Link
-                              class="btn btn-outline-primary"
-                              to="/jobtable"
+                              class="btn btn-primary"
+                              to="/admin/jobtable"
                               onClick={onSaveJobPostClicked}
                               disabled={!canSave}
                             >

@@ -3,7 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-.navbar{
+body{
+  padding-top: 0;
+}
+@media screen and (min-width: 768px) {
+  body {
+    margin: calc(var(--header-height) + 1rem) 0 0 0;
+  }}
+.navbar .navBar{
   padding:  0 !important;
   min-height: 0.5rem;
 }
@@ -14,7 +21,7 @@
   font-size: 1.4rem;
   color: #000 !important;
   font-weight: 400;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
 }
 .navUl li {
   padding: 0 0.5rem !important;

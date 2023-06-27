@@ -42,9 +42,103 @@ const JobTable = () => {
       <Meta title={"JobTable"} />
 
       <main>
-        <div className="container  px-1 pt-4">
-       
+      <div className="col-lg-12 grid-margin stretch-card pt-4" style={{ marginTop: "4rem", padding: "4rem"}}>
+  <div className="container shadow-lg bg-body rounded">
+    <div className="card-body">
+      <div className="row">
+        <div className="col-md-10 pt-4">
+          <i className="fas fa-table me-1"></i>
+          JobPost DataTable
+        </div>
+        <div className="col-md-2 pt-3 pb-3">
+          <button className="btn btn-outline-primary">
+            <Link to="/admin/addJob">Create More</Link>
+          </button>
+        </div>
+      </div>
 
+      <div className="pt-3" id="no-more-tables">
+        <div className="overflow-auto">
+          <table className="table table-bordered">
+            <thead className="table-info">
+              <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Company Logo</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {jobPosts.map((jobPost) => (
+                <JobItem
+                  no={index++}
+                  id={jobPost.id}
+                  title={jobPost.title}
+                  logo={jobPost.company.logo}
+                  type={jobPost.jobTypes.type}
+                  name={jobPost.category.name}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        {/* <div
+          class="col-lg-12 grid-margin stretch-card pt-4 px-4 mx-4"
+          style={{ marginTop: "4rem"}}
+        >
+          <div class="card shadow-lg bg-body rounded">
+            <div class="card-body">
+            <div className="row">
+              <div class=" col-md-10">
+                <i class="fas fa-table me-1"></i>
+                JobPost DataTable
+              </div>
+              <div class=" col-md-2 pt-3 pb-3">
+                <button className="btn btn-outline-primary">
+                  <Link to="/admin/addJob">Create More</Link>
+                </button>
+              </div>
+            </div>
+
+              <div class="tpt-3" id="no-more-tables">
+                <table class="table table-bordered">
+                  <thead class="table-info">
+                    <tr>
+                      <th>Id</th>
+                      <th>Title</th>
+                      <th>Company Logo</th>
+                      <th>Type</th>
+                      <th>Category</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {jobPosts.map((jobPost) => (
+                      <JobItem
+                        no={index++}
+                        id={jobPost.id}
+                        title={jobPost.title}
+                        logo={jobPost.company.logo}
+                        type={jobPost.jobTypes.type}
+                        name={jobPost.category.name}
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
+        {/* <div className="container px-1 pt-4" >
           <div className="container">
             <div className="row">
               <div class=" col-md-10 pt-3">
@@ -88,7 +182,7 @@ const JobTable = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
     </>
   );

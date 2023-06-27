@@ -10,15 +10,13 @@ import { getAllCategories } from "../categories/categorySlice";
 import { getAllCompanies } from "../companies/companySlice";
 import { getAllLocations } from "../locations/locationSlice";
 import { getAlljobTypes } from "../jobTypes/jobTypeSlice";
-// import JobPostItem from "./JobPostItem";
 import FavoriteContext from "../../store/favoriteContext";
-import "./JobPostItem.css";
+import "./JobList.css";
 
 const JobList = (props) => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const favoriteContext = useContext(FavoriteContext);
-
 
   useEffect(() => {
     dispatch(
@@ -34,15 +32,15 @@ const JobList = (props) => {
 
   function toggleFavoriteHandler(id) {
     const isJobFavorite = favoriteContext.isJobFavorite(id);
-    
-    console.log('You clicked favouriate button.');
+
+    console.log("You clicked favouriate button.");
     const jobPostId = id;
     const jobPost = jobPosts.find((post) => jobPostId === post.id);
-    console.log("isJobFav is "+isJobFavorite);
+    console.log("isJobFav is " + isJobFavorite);
 
     if (isJobFavorite) {
       favoriteContext.removeFavorite(jobPostId);
-     // isFavItem=false;
+      // isFavItem=false;
     } else {
       favoriteContext.addFavorite({
         id: jobPostId,
@@ -50,10 +48,10 @@ const JobList = (props) => {
         logo: jobPost.company.logo,
         type: jobPost.jobTypes.type,
         name: jobPost.category.name,
-        deadLine:jobPost.deadLine,
-        isFavItem:true
+        deadLine: jobPost.deadLine,
+        createdDate:jobPost.createdAt,
+        isFavItem: true,
       });
-      
     }
   }
 
@@ -90,18 +88,7 @@ const JobList = (props) => {
           </div>
         </div>
       ) : (
-        // <JobPostItem/>
-        // <ul class="list">
-        //     {jobPosts.map((jobPost) => <JobPostItem
-        //         key={jobPost.id}
-        //         id={jobPost.id}
-        //         title={jobPost.title}
-        //         logo={jobPost.company.logo}
-        //         type={jobPost.jobTypes.type}
-        //         name={jobPost.category.name}
-        //     />)}
-        // </ul>
-        <div class="container  jobList mb-5 ">
+        <div class="container jobList mb-5 ">
           <div class="container">
             <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
               Job Listing
@@ -138,14 +125,15 @@ const JobList = (props) => {
                           </div>
                           <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                             <div class="d-flex mb-3">
-                              <div class="job">
-                             
-                                <button onClick={(e) => toggleFavoriteHandler(jobPost.id)}>
-                                  { favoriteContext.isJobFavorite(jobPost.id)
-                                    ? "Remove From Favorites"
-                                    : "Add to Favorites"}
+                                <button class="btn savebtn"
+                                  onClick={(e) =>
+                                    toggleFavoriteHandler(jobPost.id)
+                                  }
+                                >
+                                  {favoriteContext.isJobFavorite(jobPost.id)
+                                    ? "UNSAVE"
+                                    : "SAVE"}
                                 </button>
-                              </div>
                               <Link
                                 class="viewJobs btn btn-outline-primary"
                                 to={`/jobPost/${jobPost.id}`}

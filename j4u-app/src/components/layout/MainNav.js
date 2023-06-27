@@ -48,7 +48,7 @@ const MainNav = () => {
             </li>
           </ul>
         </div> */}
-        <p className="mb-0 btn-sm button btn btn-outline-primary ">Log out</p>
+        <p className="mb-0 btn-sm button btn btn-outline-primary">Log out</p>
       </Link>
     );
   } else {
@@ -85,15 +85,15 @@ const MainNav = () => {
           </ul>
         </div> */}
 
-        <p className="mb-0 button btn btn-outline-primary ">Log in</p>
+        <p className="mb-0 button btn btn-outline-primary">Log in</p>
       </Link>
     );
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav className="navbar navBar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container ">
-        <Link className="navbar-brand ">
+        <Link className="navbar-brand " to="/admin/dashboard">
           J<span class="logo">4</span>U
         </Link>
         <button
@@ -111,7 +111,7 @@ const MainNav = () => {
           <ul className="navbar-nav ms-auto navUl align-items-center">
             <li className="nav-item ">
               <Link
-                className="nav-link linkItems active "
+                className="nav-link linkItems "
                 aria-current="page"
                 to="/"
               >

@@ -15,7 +15,7 @@ const JobCategory = () => {
    <>
    <Meta title={"JobCategory"} />
       
-   <div class="container py-5">
+   <div class="container py-5 ">
             <div class="container my-2" >
                 <h1 class="text-center mb-5 " data-wow-delay="0.1s">Explore By Category</h1>
                 <div class="row g-4" data-aos="fade-up" >
